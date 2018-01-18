@@ -5,9 +5,22 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
-
 window.Vue = require('vue');
+
+import VueRouter from 'vue-router'
+import Vuex from 'vuex'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+
+import MintUI from 'mint-ui'
+import 'mint-ui/lib/style.css'
+
+import 'vue-carbon/dist/vue-carbon.css'
+
+Vue.use(VueRouter);
+Vue.use(Vuex);
+Vue.use(VueAxios, axios);
+Vue.use(MintUI);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -15,8 +28,9 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
+import router from './router/routes';
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    router
 });
